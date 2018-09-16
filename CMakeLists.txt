@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 14)
 add_library(cat INTERFACE)
 add_library(cat::cat ALIAS cat)
 
+find_package(Threads)
+
 target_include_directories(cat
   INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
