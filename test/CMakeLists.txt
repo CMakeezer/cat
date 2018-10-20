@@ -3,7 +3,9 @@ function(cat_example exec srcs)
 	add_executable(${exec} ${srcs})
 	target_link_libraries(${exec} PRIVATE cat Threads::Threads)
 	target_include_directories(${exec} PRIVATE inc)
-	target_compile_options(${exec} PRIVATE "-O0;-Wall;-Wextra")
+	if(GNU)
+		target_compile_options(${exec} PRIVATE "-O0;-Wall;-Wextra")
+	endif()
 endfunction()
 
 
